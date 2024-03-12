@@ -40,7 +40,7 @@
           {{ formatTime(vm.endHour) }}:00
         </li>
       </div>
-      <div class="slideBar" :value="doubleBindingData" ref="slideBar" @click.stop="clickBar"></div>
+      <div class="slideBar" :data-time="doubleBindingData" ref="slideBar" @click.stop="clickBar"></div>
     </ul>
   </div>
 </template>
