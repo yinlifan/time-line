@@ -42,7 +42,7 @@
         </div>
         <div class="slideBar" ref="slideBar" @click.stop="clickBar"></div>
       </ul>
-      <p style="font-size: 40px">{{ vm.time.join(":") }}</p>
+      <!-- <p style="font-size: 40px">{{ vm.time.join(":") }}</p> -->
     </div>
   </div>
 </template>
