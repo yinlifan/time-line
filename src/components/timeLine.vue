@@ -40,7 +40,14 @@
           {{ formatTime(vm.endHour) }}:00
         </li>
       </div>
-      <div class="slideBar" :data-time="doubleBindingData" ref="slideBar" @click.stop="clickBar"></div>
+      <div
+        class="slideBar"
+        :data-time="doubleBindingData"
+        ref="slideBar"
+        @click.stop="clickBar"
+      ></div>
+      <!-- doubleBindingData 放入 data-time 的原因：操作在 get 里面，当接受异步数据的时候，会重新走一次 get，
+        这样就需要在页面的某处用到这个。 -->
     </ul>
   </div>
 </template>
@@ -181,13 +188,13 @@ const doubleBindingData = defineModel(
     set(v) {
       // 用来检查双向绑定值，以及子组件内改变的时候，执行的逻辑
       timeToPosition(v);
-      console.log('set---',v);
+      console.log("set---", v);
       return v;
     },
     get(val) {
       // 用来初始状态下的检查，以及获取父组件传值的时候执行的逻辑
       // console.log(1111111111111);
-      console.log('get--',val);
+      console.log("get--", val);
       if (val.length === 2) {
         if (val[0] < 0) {
           val[0] = 0;
